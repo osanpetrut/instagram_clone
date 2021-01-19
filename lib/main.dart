@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-
-import 'package:instagram_clone/src/init/init.dart';
 import 'package:instagram_clone/src/models/index.dart';
-import 'package:instagram_clone/src/presentation/routes.dart';
+import 'package:instagram_clone/src/presentation/mixin/init_mixin.dart';
 import 'package:redux/redux.dart';
+import 'package:instagram_clone/src/presentation/routes.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 void main() {
   runApp(const InstagramClone());
@@ -17,19 +16,12 @@ class InstagramClone extends StatefulWidget {
   _InstagramCloneState createState() => _InstagramCloneState();
 }
 
-class _InstagramCloneState extends State<InstagramClone> {
-  Future<Store<AppState>> _future;
-
-  @override
-  void initState() {
-    super.initState();
-    _future = init();
-  }
-
+class _InstagramCloneState extends State<InstagramClone>
+    with InitMixin<InstagramClone> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Store<AppState>>(
-      future: _future,
+      future: future,
       builder: (BuildContext context, AsyncSnapshot<Store<AppState>> snapshot) {
         if (snapshot.hasData) {
           final Store<AppState> store = snapshot.data;
@@ -46,6 +38,7 @@ class _InstagramCloneState extends State<InstagramClone> {
             throw snapshot.error;
           }
 
+          //Splash screen.
           return MaterialApp(
             title: 'Instagram Clone',
             theme: ThemeData.dark(),

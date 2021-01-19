@@ -8,7 +8,6 @@ part 'serializers.g.dart';
 
 @SerializersFor(<Type>[
   AppState,
-
 ])
 Serializers serializers = (_$serializers.toBuilder() //
       ..addPlugin(StandardJsonPlugin()) //

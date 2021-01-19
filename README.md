@@ -4,10 +4,10 @@ This is a clone of instagram with the following features:
 
 ##Setup project.(20')
 
-* [ ] This includes adding all necessary dependencies redux, service config.(20')
+* [x] This includes adding all necessary dependencies redux, service config.(20')
 
 ## Splash screen.(10')
-*[ ] Splash screen. (10')
+* [x] Splash screen. (10')
 
 ## Authentication (Login/Sing Up/Logout).(40')
 * [ ] Login/sigUp with email and password.(15')

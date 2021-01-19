@@ -1,3 +1,5 @@
+export 'authentication/index.dart';
+
 abstract class AppAction {
   const AppAction();
 }
